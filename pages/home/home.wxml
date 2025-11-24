@@ -1,0 +1,41 @@
+<!-- 首页 - 对应你Figma的布局 -->
+<view class="home">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}">
+    <swiper-item>
+      <image src="/images/banner1.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/banner2.jpg" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <view class="nav-item" data-category="egg" bindtap="onCategoryTap">
+      <image class="nav-icon" src="/icons/egg.png" />
+      <text>林间鲜蛋</text>
+    </view>
+    <view class="nav-item" data-category="chicken" bindtap="onCategoryTap">
+      <image class="nav-icon" src="/icons/chicken.png" />
+      <text>山散家禽</text>
+    </view>
+    <view class="nav-item" data-category="vegetable" bindtap="onCategoryTap">
+      <image class="nav-icon" src="/icons/vegetable.png" />
+      <text>当日时蔬</text>
+    </view>
+  </view>
+
+  <!-- 商品网格 -->
+  <view class="product-grid">
+    <block wx:for="{{products}}" wx:key="id">
+      <view class="product-card" data-product="{{item}}" bindtap="onProductTap">
+        <image class="product-image" src="{{item.image}}" />
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <text class="product-price">¥{{item.price}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
